@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+    {{name}}<br/>
+    <button v-show="flag" >显示</button>
+    <button @click="fun1()">按钮</button>
+    <input type="text" @blur="fun2('nnn')" @change="fun3()">
+    <font :color="color" :size="max">cnm</font>
+
+    <table :border="b">
+        <tr v-for="p in products">
+            <td>{{p.id}}</td>
+            <td>{{p.username}}</td>
+            <td>{{p.password}}</td>
+        </tr>
+    </table>
+    <input type="text" :value="product.username">
+    <input type="text"  v-model="username" @change="fun()">
+</div>
+</body>
+<script>
+
+    new Vue({
+        el: "#app",
+        data: {
+            b:"1",
+            username:"dsad",
+            name: "cnm",
+            flag:false,
+            color:"red",
+           max:"10",
+            arr:[1,2,3,4,5],
+            product:{id:1,username:"nnn",password:"mmm"},
+           products:[{id:1,username:"nnn",password:"mmm"},{id:2,username:"aaa",password:"ddd"},
+               {id:3,username:"ccc",password:"xxx"}]
+        },
+        methods:{
+            fun(){alert(this.username)},
+            fun1(){
+                this.name="cnmb"
+                this.flag=!this.flag
+            },
+            fun2(data){
+               this.name=data
+            },
+            fun3(){
+                alert(111)
+            }
+        }
+    })
+</script>
+</html>
