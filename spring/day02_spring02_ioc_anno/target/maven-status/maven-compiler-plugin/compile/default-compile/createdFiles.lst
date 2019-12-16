@@ -1,0 +1,3 @@
+com\itcast\dao\UserDao.class
+com\itcast\domain\User.class
+com\itcast\service\UserService.class

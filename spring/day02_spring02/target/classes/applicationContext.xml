@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDao" class="com.itcast.dao.impl.UserDaoImpl">
+        <property name="username" value="bn"></property>
+        <property name="age" value="18"></property>
+    </bean>
+    <bean id="userService" class="com.itcast.service.impl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+    <bean id="userDao2" class="com.itcast.dao.impl.UserDaoImpl">
+        <property name="username" value="zgx"></property>
+        <property name="age" value="18"></property>
+    </bean>
+    <bean id="userService2" class="com.itcast.service.impl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao2"></constructor-arg>
+
+    </bean>
+    <bean id="user" class="com.itcast.domain.User">
+        <property name="strs" >
+            <array>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>ddd</value>
+                <value>eee</value>
+                <value>fff</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>ggg</value>
+                <value>ggg</value>
+                <value>hhh</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="m1" value-ref="person1"></entry>
+                <entry key="m2" value-ref="person2"></entry>
+            </map>
+        </property>
+        <property name="properties" >
+            <props>
+                <prop key="p1">ppp</prop>
+                <prop key="p2">pppppp</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="person1" class="com.itcast.domain.Person">
+        <property name="name" value="zgx"></property>
+        <property name="age" value="18"></property>
+        <property name="address" ref="address1"></property>
+    </bean>
+    <bean id="address1" class="com.itcast.domain.Address">
+        <property name="city" value="铜陵"></property>
+    </bean>
+    <bean id="person2" class="com.itcast.domain.Person">
+        <property name="name" value="bn"></property>
+        <property name="age" value="18"></property>
+        <property name="address" ref="address2"></property>
+    </bean>
+    <bean id="address2" class="com.itcast.domain.Address">
+        <property name="city" value="颍上"></property>
+    </bean>
+</beans>

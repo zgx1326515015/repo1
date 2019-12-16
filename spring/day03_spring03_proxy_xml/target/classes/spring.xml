@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--切点-->
+    <bean id="userService" class="com.itcast.service.impl.UserServiceImpl"></bean>
+    <!--通知-->
+    <bean id="tx" class="com.itcast.utils.TXutils"></bean>
+    <!--    配置AOP-->
+
+<aop:config>
+   <aop:pointcut id="pid" expression="execution(* com.itcast.service.impl.*.*(..))"></aop:pointcut>
+    <aop:aspect ref="tx">
+        <aop:around method="around" pointcut-ref="pid"></aop:around>
+    </aop:aspect>
+</aop:config>
+</beans>

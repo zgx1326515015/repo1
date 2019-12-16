@@ -1,0 +1,8 @@
+com\itcast\domain\Address.class
+com\itcast\domain\Person.class
+com\itcast\service\impl\UserServiceImpl.class
+com\itcast\domain\User.class
+com\itcast\service\UserService.class
+com\itcast\dao\UserDao.class
+com\itcast\demo\Demo.class
+com\itcast\dao\impl\UserDaoImpl.class
